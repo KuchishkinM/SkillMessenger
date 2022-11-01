@@ -46,11 +46,11 @@ def send_message():
     if len(text) < 1 or len(sender) > 3000:
         if len(text) < 3 or len(sender) > 100:
             raise TypeError(
-                'Текс не может быть короче 1 символов.'
+                'Текст не может быть короче 1 символов.'
             )
         if len(text) > 100:
             raise TypeError(
-                'Текс не может быть длиннее 3000 символов.'
+                'Текст не может быть длиннее 3000 символов.'
             )
     add_message(sender, text)
     return {'result': True}
@@ -61,4 +61,5 @@ def chat_page():
     return render_template('form.html')
 
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
